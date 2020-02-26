@@ -135,8 +135,16 @@ class Payment extends React.Component {
   }
 
   componentDidMount() {
-    const value = queryString.parse(this.props.location.search)
-    
+    const value = queryString.parse(this.props.location.search).id
+    fetch("http://localhost:3000/merchants/" + value)
+      .then(response => response.json())
+      .then(merchant => {
+        this.setState({
+          description: merchant.description,
+          category: merchant.category
+        });
+      });
+    console.log(this.state)
   }
 
   handleChange = event => {
