@@ -8,7 +8,7 @@ class Home extends React.Component {
             <React.Fragment>
                 <h1>{'Welcome '+ this.props.currentUser.name + "!"}</h1>
                 <QR currentUser={this.props.currentUser}/>
-                <Navbar toLogout={this.props.toLogout}/>
+                <Navbar currentUser={this.props.currentUser} toLogout={this.props.toLogout}/>
             </React.Fragment>
         )
     }

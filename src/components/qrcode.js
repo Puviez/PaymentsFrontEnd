@@ -9,7 +9,7 @@ class QR extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <QRCode value={"http://192.168.174.195:3001/payment"}/>
+                <QRCode value={"http://192.168.174.195:3001/payment/?id=" + this.props.currentUser._id}/>
             </React.Fragment>
         )
     }

@@ -115,22 +115,46 @@
 // export default Payment;
 
 import React from 'react';
+import queryString from 'query-string'
 
 class Payment extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-
+      owner: this.props.currentUser._id,
+      merchant: queryString.parse(this.props.location.search).id,
+      description: "",
+      category: "",
+      amount: "",
+      date: "",
+      card_number: "",
+      expiry_month: "",
+      expiry_year: "",
+      cvv: ""
     }
+  }
+
+  componentDidMount() {
+    const value = queryString.parse(this.props.location.search)
+    
   }
 
   handleChange = event => {
     this.setState({[event.target.id]: event.target.value});
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+    
+  }
+
   render () {
     return (
-
+      <React.Fragment>
+        <h1>{"Hello World"}</h1>
+      </React.Fragment>
     )
   }
 }
+
+export default Payment;

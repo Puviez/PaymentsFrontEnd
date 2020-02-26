@@ -107,13 +107,14 @@ class App extends React.Component {
                                 <Redirect to="/login" setUser={this.userState} />
                             )}
                     </Route>
-                    <Route path="/payment">
-                        {this.state.currentUser ? (
+                    <Route path="/payment" render={(props) => <Payment {...props} currentUser={this.state.currentUser} />} />
+                        {/* {this.state.currentUser ? (
                             <Payment currentUser={this.state.currentUser} toLogout={this.toLogout} />
                         ) : (
                                 <Redirect to="/login" setUser={this.userState} />
-                            )}
-                    </Route>
+                            )} */}
+                        {/* <Payment currentUser={this.state.currentUser} />
+                    </Route> */}
                 </Switch>
             </BrowserRouter>
         )
