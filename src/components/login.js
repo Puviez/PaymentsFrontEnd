@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Redirect
 } from "react-router-dom";
+import NavButton from './navbutton';
 
 class Login extends React.Component {
     constructor (props) {
@@ -72,7 +73,9 @@ class Login extends React.Component {
                         value='Submit'
                     />
                 </form>
+                <NavButton nav={"/"} text={"Back"} />
             </React.Fragment>
+            
         )
     }
 }

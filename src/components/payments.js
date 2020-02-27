@@ -116,12 +116,15 @@
 
 import React from 'react';
 import queryString from 'query-string'
+import { Redirect
+} from "react-router-dom";
+import NavButton from './navbutton'
 
 class Payment extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      owner: this.props.currentUser._id,
+      owner: "5e5533e8c8afe67ffe1c63c6",
       merchant: queryString.parse(this.props.location.search).id,
       description: "",
       category: "",
@@ -130,7 +133,8 @@ class Payment extends React.Component {
       card_number: "",
       expiry_month: "",
       expiry_year: "",
-      cvv: ""
+      cvv: "",
+      redirect: false
     }
   }
 
@@ -153,16 +157,79 @@ class Payment extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    
+    fetch("http://localhost:3000/payments", {
+        body: JSON.stringify(this.state),
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        }
+    })
+      .then(createdPayment => {
+        console.log(createdPayment);
+        return createdPayment.json();
+      })
+      .then(() => {
+        // to toggle to true to redirect
+        this.setState({
+          redirect: true
+        });
+      })
+      .catch((error) => console.log(error));
   }
 
   render () {
+    if (this.state.redirect === true) {
+      return <Redirect to="/login" />;
+    }
     return (
       <React.Fragment>
-        <h1>{"Hello World"}</h1>
+        <form onSubmit={this.handleSubmit}>
+            <label htmlFor='date'>Date</label>
+            <input
+                id='date'
+                type='date'
+                value={this.state.date}
+                onChange={this.handleChange}
+            />
+            <label htmlFor='amount'>Amount</label>
+            <input
+                id='amount'
+                type='number'
+                value={this.state.amount}
+                onChange={this.handleChange}
+            />
+            <label htmlFor='card_number'>Card Number</label>
+            <input
+                id='card_number'
+                type='number'
+                value={this.state.card_number}
+                onChange={this.handleChange}
+            />
+            <label htmlFor='expiry_month'>MM</label>
+            <input
+                id='expiry_month'
+                type='number'
+                value={this.state.expiry_month}
+                onChange={this.handleChange}
+            />
+            <label htmlFor='expiry_year'>YY</label>
+            <input
+                id='expiry_year'
+                type='number'
+                value={this.state.expiry_year}
+                onChange={this.handleChange}
+            />
+            <input
+                type='submit'
+                value='Submit'
+            />
+        </form>
+        <NavButton nav={"/home"} text={"Cancel"} />
       </React.Fragment>
     )
-  }
+  }  
+  
 }
 
 export default Payment;
