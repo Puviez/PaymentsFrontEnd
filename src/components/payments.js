@@ -182,10 +182,11 @@ class Payment extends React.Component {
 
   render () {
     if (this.state.redirect === true) {
-      return <Redirect to="/login" />;
+      return <Redirect to="/home" />;
     }
     return (
       <React.Fragment>
+        <h1>{"Paying: " + this.state.description}</h1>
         <form onSubmit={this.handleSubmit}>
             <label htmlFor='date'>Date</label>
             <input
