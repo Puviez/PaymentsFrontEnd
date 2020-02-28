@@ -186,49 +186,76 @@ class Payment extends React.Component {
     }
     return (
       <React.Fragment>
-        <h1>{"Paying: " + this.state.description}</h1>
-        <form onSubmit={this.handleSubmit}>
-            <label htmlFor='date'>Date</label>
-            <input
-                id='date'
-                type='date'
-                value={this.state.date}
-                onChange={this.handleChange}
-            />
-            <label htmlFor='amount'>Amount</label>
-            <input
-                id='amount'
-                type='number'
-                value={this.state.amount}
-                onChange={this.handleChange}
-            />
-            <label htmlFor='card_number'>Card Number</label>
-            <input
-                id='card_number'
-                type='number'
-                value={this.state.card_number}
-                onChange={this.handleChange}
-            />
-            <label htmlFor='expiry_month'>MM</label>
-            <input
-                id='expiry_month'
-                type='number'
-                value={this.state.expiry_month}
-                onChange={this.handleChange}
-            />
-            <label htmlFor='expiry_year'>YY</label>
-            <input
-                id='expiry_year'
-                type='number'
-                value={this.state.expiry_year}
-                onChange={this.handleChange}
-            />
-            <input
-                type='submit'
-                value='Submit'
-            />
-        </form>
-        <NavButton nav={"/home"} text={"Cancel"} />
+        <div className="auth-inner">
+          <h1>{"Paying: " + this.state.description}</h1>
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+                <label htmlFor='date'>Date: </label>
+                <input
+                    id='date'
+                    type='date'
+                    value={this.state.date}
+                    onChange={this.handleChange}
+                    className="form-control"
+                />
+            </div>
+            <div className="form-group">
+              <label htmlFor='amount'>Amount: </label>
+              <input
+                  id='amount'
+                  type='number'
+                  value={this.state.amount}
+                  onChange={this.handleChange}
+                  className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor='card_number'>Card Number: </label>
+              <input
+                  id='card_number'
+                  type='number'
+                  value={this.state.card_number}
+                  onChange={this.handleChange}
+                  className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor='expiry_month'>MM: </label>
+              <input
+                  id='expiry_month'
+                  type='number'
+                  value={this.state.expiry_month}
+                  onChange={this.handleChange}
+                  className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor='expiry_year'>YY: </label>
+              <input
+                  id='expiry_year'
+                  type='number'
+                  value={this.state.expiry_year}
+                  onChange={this.handleChange}
+                  className="form-control"
+              />
+            </div>
+            <div className="form-group">
+            <label htmlFor='cvv'>CVV: </label>
+              <input
+                  id='cvv'
+                  type='number'
+                  value={this.state.cvv}
+                  onChange={this.handleChange}
+                  className="form-control"
+              />
+            </div>
+              <input
+                  type='submit'
+                  value='Submit'
+              />
+          </form>
+          <NavButton nav={"/home"} text={"Cancel"} />
+        </div>
       </React.Fragment>
     )
   }  
