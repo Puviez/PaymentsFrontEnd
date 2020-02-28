@@ -59,23 +59,30 @@ class Login extends React.Component {
         return (
             <React.Fragment>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='username'>Username</label>
-                    <input
-                        id='username'
-                        type='text'
-                        value={this.state.username}
-                        onChange={this.handleChange}
-                    />
-                    <label htmlFor='password'>Password</label>
-                    <input
-                        id='password'
-                        type='password'
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
+                    <div className="form-group">
+                        <label htmlFor='username'>Username</label>
+                        <input
+                            id='username'
+                            type='text'
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor='password'>Password</label>
+                        <input
+                            id='password'
+                            type='password'
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            className="form-control"
+                        />
+                    </div>
                     <input
                         type='submit'
                         value='Submit'
+                        className="btn btn-primary btn-block"
                     />
                 </form>
                 <NavButton nav={"/"} text={"Back"} />

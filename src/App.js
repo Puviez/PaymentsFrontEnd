@@ -51,6 +51,7 @@ import Login from './components/login'
 import Main from './components/main'
 import Signup from './components/signup'
 import Payment from './components/payments'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
     constructor (props) {

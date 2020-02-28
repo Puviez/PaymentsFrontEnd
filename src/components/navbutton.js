@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-    Link
-} from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 class NavButton extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <div>
-                    <Link to={this.props.nav}>{this.props.text}</Link>
-                </div>
+                <Button href={this.props.nav} className="form-control">
+                    {this.props.text}
+                </Button>
             </React.Fragment>
         )
     }
