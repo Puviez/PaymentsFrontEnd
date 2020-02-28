@@ -56,7 +56,7 @@ class App extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            currentUser: ""
+            currentUser: JSON.parse(localStorage.getItem('user'))
         }
     }
 
@@ -67,6 +67,7 @@ class App extends React.Component {
     }
 
     toLogout = () => {
+        localStorage.removeItem('user')
         this.setState({
           currentUser: ""
         });
