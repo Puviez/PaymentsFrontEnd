@@ -4,6 +4,8 @@ import {
 } from "react-router-dom";
 import NavButton from './navbutton';
 
+
+
 class Login extends React.Component {
     constructor (props) {
         super(props);
@@ -33,9 +35,12 @@ class Login extends React.Component {
               return loggedInUser.json();
           })
           .then(jsonedUser => {
+            //   localStorage.setItem('user',jsonedUser._id)
               this.setState({
                 currentUser: jsonedUser
               })
+              localStorage.setItem('user',JSON.stringify(this.state.currentUser));
+
             //   console.log(this.state.currentUser)
           })
           .then(() => {

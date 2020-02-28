@@ -52,7 +52,6 @@ import Main from './components/main'
 import Signup from './components/signup'
 import Payment from './components/payments'
 
-
 class App extends React.Component {
     constructor (props) {
         super(props);
@@ -87,34 +86,27 @@ class App extends React.Component {
                         <Login setUser={this.updateUser}/>
                     </Route> 
                     <Route path="/home">
-                        {this.state.currentUser ? (
+                        {localStorage.getItem('user') ? (
                             <Home currentUser={this.state.currentUser} toLogout={this.toLogout} />
                         ) : (
                                 <Redirect to="/login" setUser={this.userState} />
                             )}
                     </Route>
                     <Route path="/history">
-                        {this.state.currentUser ? (
+                        {localStorage.getItem('user') ? (
                             <History currentUser={this.state.currentUser} toLogout={this.toLogout} />
                         ) : (
                                 <Redirect to="/login" setUser={this.userState} />
                             )}
                     </Route>
                     <Route path="/account">
-                        {this.state.currentUser ? (
+                        {localStorage.getItem('user') ? (
                             <Account currentUser={this.state.currentUser} toLogout={this.toLogout} />
                         ) : (
                                 <Redirect to="/login" setUser={this.userState} />
                             )}
                     </Route>
                     <Route path="/payment" render={(props) => <Payment {...props} currentUser={this.state.currentUser} />} />
-                        {/* {this.state.currentUser ? (
-                            <Payment currentUser={this.state.currentUser} toLogout={this.toLogout} />
-                        ) : (
-                                <Redirect to="/login" setUser={this.userState} />
-                            )} */}
-                        {/* <Payment currentUser={this.state.currentUser} />
-                    </Route> */}
                 </Switch>
             </BrowserRouter>
         )

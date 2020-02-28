@@ -124,7 +124,7 @@ class Payment extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      owner: "5e5533e8c8afe67ffe1c63c6",
+      owner: "",
       merchant: queryString.parse(this.props.location.search).id,
       description: "",
       category: "",
@@ -140,6 +140,8 @@ class Payment extends React.Component {
 
   componentDidMount() {
     const value = queryString.parse(this.props.location.search).id
+    const userData = JSON.parse(localStorage.getItem('user'))
+    this.setState({owner: userData._id})
     fetch("http://localhost:3000/merchants/" + value)
       .then(response => response.json())
       .then(merchant => {
