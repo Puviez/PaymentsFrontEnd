@@ -49,32 +49,44 @@ class Account extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <form onSubmit={this.handleEdit}>
-                    <label htmlFor='username'>Username</label>
-                    <input readOnly
-                        id='username'
-                        type='text'
-                        value={this.state.username}
-                    />
-                    <label htmlFor='name'>Name</label>
-                    <input
-                        id='name'
-                        type='text'
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                    />
-                    <label htmlFor='email'>Email</label>
-                    <input
-                        id='email'
-                        type='text'
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type='submit'
-                        value='Submit'
-                    />
-                </form>
+                <div className="auth-inner">
+                    <form onSubmit={this.handleEdit}>
+                        <div className="form-group">
+                        <label htmlFor='username'>Username: </label>
+                        <input readOnly
+                            id='username'
+                            type='text'
+                            value={this.state.username}
+                            className="form-control"
+                        />
+                        </div>
+                        <div className="form-group">
+                        <label htmlFor='name'>Name: </label>
+                        <input
+                            id='name'
+                            type='text'
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                            className="form-control"
+                        />
+                        </div>
+                        <div className="form-group">
+                        <label htmlFor='email'>Email: </label>
+                        <input
+                            id='email'
+                            type='text'
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            className="form-control"
+                        />
+                        </div>
+                        <input
+                            type='submit'
+                            value='Edit Details'
+                            className="btn btn-primary btn-block"
+                        />
+                    </form>
+                </div>
                 <Navbar toLogout={this.props.toLogout}/>
             </React.Fragment>
         )
