@@ -73,3 +73,6 @@ body, html, .App, #root, .auth-wrapper {
   font-weight: 400;
 }
 
+.chart-container {
+  height: 60vh;
+}

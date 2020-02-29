@@ -57,21 +57,27 @@ class Home extends React.Component {
         return (
             <React.Fragment>
                 <h1>{'Welcome '+ this.props.currentUser.name + "!"}</h1>
-                <Pie data={{
-                    labels: this.state.categories,
-                    datasets: [
-                        {
-                            data: this.state.spending,
-                            backgroundColor: this.state.pieColours
-                        }
-                    ]
-                }} options={{
-                    title:{
-                        display:true,
-                        text:'Expense Breakdown',
-                        fontSize:20
-                    }
-                }}/>
+                <article class="chart-container">
+                    <Pie data={{
+                        labels: this.state.categories,
+                        datasets: [
+                            {
+                                data: this.state.spending,
+                                backgroundColor: this.state.pieColours
+                            }
+                        ]
+                    }} 
+                    options={{
+                        title:{
+                            display:true,
+                            text:'Expense Breakdown',
+                            fontSize:20
+                        },
+                        maintainAspectRatio: false
+                    }}
+                    />
+                </article>
+                
                 {/* <QR currentUser={this.props.currentUser}/> */}
                 <Navlinks currentUser={this.props.currentUser} toLogout={this.props.toLogout}/>
             </React.Fragment>
