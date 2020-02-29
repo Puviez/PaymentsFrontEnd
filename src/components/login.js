@@ -3,8 +3,7 @@ import {
     Redirect
 } from "react-router-dom";
 import NavButton from './navbutton';
-
-
+import { Form } from "react-bootstrap";
 
 class Login extends React.Component {
     constructor (props) {
@@ -13,8 +12,13 @@ class Login extends React.Component {
             username: "",
             password: "",
             currentUser: "",
+            merchant: false,
             redirect: false
         }
+    }
+
+    toggleMerchant = () => {
+        this.setState({merchant: !this.state.merchant})
     }
 
     handleChange = event => {
@@ -60,6 +64,12 @@ class Login extends React.Component {
             <React.Fragment>
                 <div className="auth-wrapper">
                     <div className="auth-inner">
+                        <Form.Check 
+                            type="switch"
+                            id="custom-switch"
+                            onClick={this.toggleMerchant}
+                            label={this.state.merchant ? "Merchant" : "User"}
+                        />
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor='username'>Username</label>
