@@ -45,7 +45,7 @@ class History extends React.Component {
                                         <td><Moment format="DD/MM/YYYY">{transaction.date}</Moment></td>
                                         <td>{transaction.description}</td>
                                         <td>{transaction.category}</td>
-                                        <td>{transaction.amount}</td>
+                                        <td>{"$" + transaction.amount}</td>
                                     </tr>
                                 )
                             }
