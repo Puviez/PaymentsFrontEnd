@@ -72,7 +72,7 @@ class Home extends React.Component {
                         fontSize:20
                     }
                 }}/>
-                <QR currentUser={this.props.currentUser}/>
+                {/* <QR currentUser={this.props.currentUser}/> */}
                 <Navbar currentUser={this.props.currentUser} toLogout={this.props.toLogout}/>
             </React.Fragment>
         )

@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './navbar'
 import Moment from 'react-moment';
 import 'moment-timezone';
+import { Table } from "react-bootstrap"; 
 
 class History extends React.Component {
     constructor (props) {
@@ -25,7 +26,8 @@ class History extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <table>
+                <h1>Transaction History</h1>
+                <Table striped bordered hover responsive variant="dark">
                     <thead>
                         <tr>
                             <th scope="col">Date</th>
@@ -48,7 +50,7 @@ class History extends React.Component {
                             }
                         )}
                     </tbody>
-                </table>
+                </Table>
                 <Navbar toLogout={this.props.toLogout}/>
             </React.Fragment>
         )
