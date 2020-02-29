@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './navbar'
+import Navlinks from './navbar'
 
 class Account extends React.Component {
     constructor (props) {
@@ -87,7 +87,7 @@ class Account extends React.Component {
                         />
                     </form>
                 </div>
-                <Navbar toLogout={this.props.toLogout}/>
+                <Navlinks toLogout={this.props.toLogout}/>
             </React.Fragment>
         )
     }

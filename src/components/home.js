@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './navbar'
+import Navlinks from './navbar'
 import QR from './qrcode'
 import { Pie } from 'react-chartjs-2';
 
@@ -73,7 +73,7 @@ class Home extends React.Component {
                     }
                 }}/>
                 {/* <QR currentUser={this.props.currentUser}/> */}
-                <Navbar currentUser={this.props.currentUser} toLogout={this.props.toLogout}/>
+                <Navlinks currentUser={this.props.currentUser} toLogout={this.props.toLogout}/>
             </React.Fragment>
         )
     }
